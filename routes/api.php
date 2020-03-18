@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('export', 'ExportController@export');
+// Route::get('export', 'ExportController@export');
 Route::post('fetchohlcs', 'ExportController@getLatestOhlcs');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

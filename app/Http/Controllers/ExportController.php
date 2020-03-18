@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Request;
 
 class ExportController extends Controller
 {
-    public function export()
-    {
-        $article = new Article;
-        $export = $article->export();
+    // public function export()
+    // {
+    //     $article = new Article;
+    //     $export = $article->export();
 
-        return response($export, 200)->header('Content-Type', 'application/json');
-    }
+    //     return response($export, 200)->header('Content-Type', 'application/json');
+    // }
 
     public function getLatestOhlcs(Request $request)
     {
