@@ -11,6 +11,8 @@ class Ohlc extends Model
      *
      * @var array
      */
+    protected $primaryKey = 'ohlc_id';
+
     protected $fillable = [
         'symbol_id', 'open', 'high', 'low', 'close', 'uts', 'utc',
     ];

@@ -16,7 +16,7 @@ class CreateOhlcsTable extends Migration
     //    "t": 1583244000000, // Time Unix Format (UTC)
     //    "tm": "2020-03-03 14:00:00" // Date Time (UTC)
     // }
-    
+
     /**
      * Run the migrations.
      *
@@ -26,14 +26,18 @@ class CreateOhlcsTable extends Migration
     {
         Schema::create('ohlcs', function (Blueprint $table) {
             $table->bigIncrements('ohlc_id');
-            $table->integer('symbol_id');
-            $table->decimal('open',6,4);
-            $table->decimal('high',6,4);
-            $table->decimal('low',6,4);
-            $table->decimal('close',6,4);
+            $table->integer('symbol_id')->unsigned();
+            $table->decimal('open', 6, 4);
+            $table->decimal('high', 6, 4);
+            $table->decimal('low', 6, 4);
+            $table->decimal('close', 6, 4);
             $table->bigInteger('uts');
             $table->datetime('utc');
             $table->timestamps();
+        });
+
+        Schema::table('ohlcs', function ($table) {
+            $table->foreign('symbol_id')->references('symbol_id')->on('m_symbols')->onUpdate('cascade');
         });
     }
 

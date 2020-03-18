@@ -11,6 +11,9 @@ class M_symbol extends Model
      *
      * @var array
      */
+
+    protected $primaryKey = 'M_symbols_id';
+
     protected $fillable = [
         'symbol_id', 'symbol_name',
     ];
